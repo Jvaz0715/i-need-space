@@ -36,7 +36,8 @@ searchButton.addEventListener("click", function(){
         return coordinates;
     })
     .then((coordinates) => {
-        console.log(coordinates)
+        console.log(coordinates[0]);
+        console.log(coordinates[1]);
     })
 })
 
