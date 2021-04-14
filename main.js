@@ -16,6 +16,9 @@ searchButton.addEventListener("click", function(){
     let addressString = addressInput.value;
     addressString = encodeURIComponent(addressString.trim())
     
-    console.log("New address input: " + addressString);    
+    console.log("New address input: " + addressString);
+    
+    const URL = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + addressString + ".json?access_token=" + apiInput.value;
+    console.log(URL);
 })
 
