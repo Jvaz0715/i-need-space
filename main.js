@@ -23,8 +23,6 @@ searchButton.addEventListener("click", function(){
     fetch(mapURL)
     // Now process the raw response into an object
     .then((res) => res.json())
-    // Now process the above JSON, we will first console log a message
-    //but we want to use this space to change the img src
     .then((data) => {
         // declare the coordinates of each latitude and longitude
         const latitude = data.features[0].geometry.coordinates[0];
@@ -36,8 +34,23 @@ searchButton.addEventListener("click", function(){
         return coordinates;
     })
     .then((coordinates) => {
+        //testing coordinates are present;
         console.log(coordinates[0]);
         console.log(coordinates[1]);
+        console.log(noradInput.value);
+        const satAPIurl = "https://satellites.fly.dev/passes/" + noradInput.value + "?lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&limit=1" 
+        fetch(satAPIurl)
+            // Now process the raw response into an object
+            .then((res) => res.json())
+            // Now process the above JSON, we will first console log a message
+
+            .then((data) => {
+        // declare the coordinates of each latitude and longitude
+            console.log('If this succeeds, than the sat url should return data: ')
+            console.log(satAPIurl);
+        // test the latitude + longitude variables by console logging them
+      
+    })
     })
 })
 
