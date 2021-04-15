@@ -45,11 +45,11 @@ searchButton.addEventListener("click", function(){
             console.log('If this succeeds, than the data will show here: ')
             console.log(data);
             //check for rise information
-            console.log("Rise: " + data[0].rise);
+            console.log("Rise: " + data[0].rise.utc_datetime);
             //check for culmination information
-            console.log("Culminates: " +data[0].culmination);
+            console.log("Culminates: " +data[0].culmination.utc_datetime);
             //check for set information
-            console.log("Sets: " + data[0].set);
+            console.log("Sets: " + data[0].set.utc_datetime);
             
       
     })
