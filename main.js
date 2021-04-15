@@ -52,20 +52,13 @@ searchButton.addEventListener("click", function(){
             // test to target data information
             console.log('If this succeeds, than the data will show here: ')
             console.log(data);
-            //check for rise information
-            console.log("Rise: " + data[0].rise.utc_datetime);
-            //check for culmination information
-            console.log("Culminates: " +data[0].culmination.utc_datetime);
-            //check for set information
-            console.log("Sets: " + data[0].set.utc_datetime);
+            // //check for rise information
+            // console.log("Rise: " + data[0].rise.utc_datetime);
+            // //check for culmination information
+            // console.log("Culminates: " +data[0].culmination.utc_datetime);
+            // //check for set information
+            // console.log("Sets: " + data[0].set.utc_datetime);
 
-
-            console.log(data[0].rise.utc_datetime)
-            const dateUTC = data[0].rise.utc_datetime //+ " UTC";
-            console.log(dateUTC);
-            const localDate = new Date(dateUTC);
-
-            console.log("Local Date is: " + localDate);
             // Use this to create a count down later on
             // const currentdate = new Date(); 
             // const datetime = "Last Sync: " + currentdate.getDate() + "/"
