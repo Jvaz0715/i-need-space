@@ -7,19 +7,15 @@ const searchButton = document.querySelector("#search");
 
 //add event listener to button
 searchButton.addEventListener("click", function(){
-   //log out the .values of the input fields
-    /*console.log("api input: " + apiInput.value);
-    console.log("address input: " + addressInput.value);
-    console.log("norad input: " + noradInput.value);*/ 
-
     //will convert the address input with spaces to have %20 for url purposes
     let addressString = addressInput.value;
-    addressString = encodeURIComponent(addressString.trim())
+    //make the addressString URL useable
+    addressString = encodeURIComponent(addressString.trim());
     
-    console.log("New address input: " + addressString);
-    
+    //declare the mapURL concatenated with necessary url portions
     const mapURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + addressString + ".json?access_token=" + apiInput.value;
-    console.log(mapURL);
+   
+    // now fetch the mapURL delared above
     fetch(mapURL)
     // Now process the raw response into an object
     .then((res) => res.json())
@@ -27,28 +23,34 @@ searchButton.addEventListener("click", function(){
         // declare the coordinates of each latitude and longitude
         const latitude = data.features[0].geometry.coordinates[0];
         const longitude = data.features[0].geometry.coordinates[1];
-        // test the latitude + longitude variables by console logging them
-        console.log("This is latitude: " + latitude);
-        console.log("This is longitude: " + longitude);
+       
         const coordinates = [latitude, longitude];
         return coordinates;
     })
     .then((coordinates) => {
-        //testing coordinates are present;
-        console.log(coordinates[0]);
-        console.log(coordinates[1]);
-        console.log(noradInput.value);
-        const satAPIurl = "https://satellites.fly.dev/passes/" + noradInput.value + "?lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&limit=1" 
+        //REFERENCE: satAPI URL should look like below, use string concat to create
+        //https://satellites.fly.dev/passes/25544?lat=-34.91&lon=-57.93&limit=1&days=15&visible_only=true
+        const satAPIurl = "https://satellites.fly.dev/passes/" + noradInput.value + "?lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&limit=1&days=15&visible_only=true";
+
+        //now fetch the satAPIurl 
         fetch(satAPIurl)
             // Now process the raw response into an object
             .then((res) => res.json())
-            // Now process the above JSON, we will first console log a message
-
+            // Now process the above JSON
             .then((data) => {
-        // declare the coordinates of each latitude and longitude
-            console.log('If this succeeds, than the sat url should return data: ')
+            // test to make sure you can log out the satellite url properply
+            console.log('If this succeeds, than the sat url should be returned below: ')
             console.log(satAPIurl);
-        // test the latitude + longitude variables by console logging them
+            // test to target data information
+            console.log('If this succeeds, than the data will show here: ')
+            console.log(data);
+            //check for rise information
+            console.log("Rise: " + data[0].rise);
+            //check for culmination information
+            console.log("Culminates: " +data[0].culmination);
+            //check for set information
+            console.log("Sets: " + data[0].set);
+            
       
     })
     })
