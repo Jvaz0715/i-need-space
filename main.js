@@ -52,6 +52,18 @@ searchButton.addEventListener("click", function(){
             // test to target data information
             console.log('If this succeeds, than the data will show here: ')
             console.log(data);
+            if (data.length === 0) {
+                console.log("No data to display");
+            } else {
+                for (let i = 0; i <data.length; i++){
+                // //check for rise information
+                    console.log("Rise: " + data[i].rise.utc_datetime);
+            // //check for culmination information
+                    console.log("Culminates: " +data[i].culmination.utc_datetime);
+            // //check for set information
+                    console.log("Sets: " + data[i].set.utc_datetime);
+                }
+            }
             // //check for rise information
             // console.log("Rise: " + data[0].rise.utc_datetime);
             // //check for culmination information
