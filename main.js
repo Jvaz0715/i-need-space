@@ -38,7 +38,7 @@ searchButton.addEventListener("click", function(){
     .then((coordinates) => {
         //REFERENCE: satAPI URL should look like below, use string concat to create
         //https://satellites.fly.dev/passes/25544?lat=-34.91&lon=-57.93&limit=1&days=15&visible_only=true
-        const satAPIurl = "https://satellites.fly.dev/passes/" + noradInput.value + "?lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&limit=1&days=15&visible_only=true";
+        const satAPIurl = "https://satellites.fly.dev/passes/" + noradInput.value + "?lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&days=15&visible_only=true";
 
         //now fetch the satAPIurl 
         fetch(satAPIurl)
@@ -46,24 +46,19 @@ searchButton.addEventListener("click", function(){
             .then((res) => res.json())
             // Now process the above JSON
             .then((data) => {
-            // test to make sure you can log out the satellite url properply
-            // console.log('If this succeeds, than the sat url should be returned below: ')
-            // console.log(satAPIurl);
-            // // test to target data information
-            // console.log('If this succeeds, than the data will show here: ')
-            // console.log(data);
-            // //check for rise information
-            // console.log("Rise: " + data[0].rise.utc_datetime);
-            // //check for culmination information
-            // console.log("Culminates: " +data[0].culmination.utc_datetime);
-            // //check for set information
-            // console.log("Sets: " + data[0].set.utc_datetime);
+            //test to make sure you can log out the satellite url properply
+            console.log('If this succeeds, than the sat url should be returned below: ')
+            console.log(satAPIurl);
+            // test to target data information
+            console.log('If this succeeds, than the data will show here: ')
+            console.log(data);
+            //check for rise information
+            console.log("Rise: " + data[0].rise.utc_datetime);
+            //check for culmination information
+            console.log("Culminates: " +data[0].culmination.utc_datetime);
+            //check for set information
+            console.log("Sets: " + data[0].set.utc_datetime);
 
-            // Gets the date on the left, space, gmt time on the right
-            // let dataArray = new Array();
-            // dataArray = data[0].rise.utc_datetime.split(".");
-            // const date
-            // console.log("Data Array: " + dataArray[0]);
 
             console.log(data[0].rise.utc_datetime)
             const dateUTC = data[0].rise.utc_datetime //+ " UTC";
@@ -85,4 +80,3 @@ searchButton.addEventListener("click", function(){
     })
     })
 })
-
