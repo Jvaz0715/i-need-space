@@ -85,34 +85,30 @@ button:hover {
     height: 700px;
     border: 3px solid red;
     margin-bottom: 20px;
+    background-color: gray;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     /* background-color: white; */
 }
 
-.forecast-container {
-    width: 3fr;
+.card-side-side{
     display: flex;
-    color: white;
-    border: 3px solid white;
-
+    border: 3px solid green;
 }
 
 .img-container {
-    width: 30%;
-    /* border: 2px solid green; */
+    width: 40%;
     background-position: 50% 50%;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("https://www.pngkey.com/png/detail/253-2531709_satellite-cartoon-png-cartoon-satellite.png");
-
+    background-image: url("https://cdn.dribbble.com/users/178032/screenshots/1794380/satx4.gif");
 }
 
-.sat-img {
-    width: 100%;
-}
 
-.forecast-details {
-    width: 70%;
-    /* border: 2px solid yellow; */
+
+table,
+th, 
+td {
+    color: white;
 }
