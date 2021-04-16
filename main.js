@@ -6,12 +6,22 @@ const noradInput = document.querySelector("#norad");
 const searchButton = document.querySelector("#search");
 
 //some helper functions
-//to convert month number to month name
-// function changeToMonth(num) {
-    
-    
-// }
-//to convert utc data to Month DD, YYYY
+
+//create a function to just get the TIME of the rise, culm., sets
+function getTime(utcStamp) {
+    // Create date based on the timestamp
+    const date = new Date(utcStamp * 1000);
+    // Hours part from the timestamp
+    const hours = date.getHours();
+    // Minutes part from the timestamp
+    //it will account for single digits and double digits
+    const minutes = "0" + date.getMinutes();
+    // Seconds part from the timestamp
+    const seconds = "0" + date.getSeconds();
+
+    // Will display time in 10:30:23 format
+    const formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+}
 
 //add event listener to button
 searchButton.addEventListener("click", function(){
@@ -51,19 +61,27 @@ searchButton.addEventListener("click", function(){
             console.log(satAPIurl);
             // test to target data information
             console.log('If this succeeds, than the data will show here: ')
-            console.log(data);
-            if (data.length === 0) {
-                console.log("No data to display");
-            } else {
-                for (let i = 0; i <data.length; i++){
-                // //check for rise information
-                    console.log("Rise: " + data[i].rise.utc_datetime);
-            // //check for culmination information
-                    console.log("Culminates: " +data[i].culmination.utc_datetime);
-            // //check for set information
-                    console.log("Sets: " + data[i].set.utc_datetime);
-                }
-            }
+            console.log(data[0].rise.utc_timestamp);
+
+            //TODO: create a function that intakes the utc timestap and converts it to localestring
+
+
+
+            //++++++++++
+            // if (data.length === 0) {
+            //     console.log("No data to display");
+            // } else {
+            //     for (let i = 0; i <data.length; i++){
+            //     // //check for rise information
+            //         console.log("Rise: " + data[i].rise.utc_datetime);
+            // // //check for culmination information
+            //         console.log("Culminates: " +data[i].culmination.utc_datetime);
+            // // //check for set information
+            //         console.log("Sets: " + data[i].set.utc_datetime);
+            //     }
+            // }
+
+
             // //check for rise information
             // console.log("Rise: " + data[0].rise.utc_datetime);
             // //check for culmination information
