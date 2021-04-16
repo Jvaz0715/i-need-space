@@ -101,16 +101,18 @@ button:hover {
 
 .img-container {
     width: 30%;
-    border: 2px solid green;
+    /* border: 2px solid green; */
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: url("https://www.pngkey.com/png/detail/253-2531709_satellite-cartoon-png-cartoon-satellite.png");
 
 }
 
 .sat-img {
     width: 100%;
-    height: auto;
 }
 
 .forecast-details {
     width: 70%;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
 }
