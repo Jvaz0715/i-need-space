@@ -7,7 +7,19 @@ const searchButton = document.querySelector("#search");
 
 //some helper functions
 
-// create a helper function to keep hours on the 12 hour clock
+//create a function to get the DATE in  Mon., DD, YYYY
+function getDate(utcStamp){
+    //handle milliseconds to seconds since js deals in seconds;
+    const newDate = new Date(utcStamp * 1000);
+    // use three letter months for formatting layout later
+    //have to declare months variable since get month only returns month as a number
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const year = newDate.getFullYear();
+    const month = months[newDate.getMonth()];
+    const date = newDate.getDate();
+    const fullDate = month + ' ' + date + ', ' + year;
+    return fullDate;
+  }
 
 //create a function to just get the TIME of the rise, culm., sets
 function getTime(utcStamp) {
@@ -69,22 +81,20 @@ searchButton.addEventListener("click", function(){
                 console.log("No data to display");
             } else {
                 for (let i = 0; i <data.length; i++){
-                // //check for rise information
+                    //check for the date
+                    console.log("==============================================")
+                    console.log("Event will occur on: " + getDate(data[i].rise.utc_timestamp));
+                    console.log("Below are the rise, culmination, and setting times");
+                    
+                    //check for rise information
                     console.log("Rises at: " + getTime(data[i].rise.utc_timestamp));
-            // //check for culmination information
+                    //check for culmination information
                     console.log("Culminates at: " + getTime(data[i].culmination.utc_timestamp));
-            // //check for set information
+                    //check for set information
                     console.log("Sets at: " + getTime(data[i].set.utc_timestamp));
+                    console.log("==============================================")
                 }
             }
-
-
-            // //check for rise information
-            // console.log("Rise: " + data[0].rise.utc_datetime);
-            // //check for culmination information
-            // console.log("Culminates: " +data[0].culmination.utc_datetime);
-            // //check for set information
-            // console.log("Sets: " + data[0].set.utc_datetime);
 
             // Use this to create a count down later on
             // const currentdate = new Date(); 
