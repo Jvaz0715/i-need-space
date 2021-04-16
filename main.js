@@ -64,27 +64,19 @@ searchButton.addEventListener("click", function(){
             //test to make sure you can log out the satellite url properply
             console.log('If this succeeds, than the sat url should be returned below: ')
             console.log(satAPIurl);
-            // test to target data information
-            console.log('If this succeeds, than the data will show here: ')
-            console.log(data[0].rise.utc_timestamp);
-
-            //TODO: create a function that intakes the utc timestap and converts it to localestring
-
-
-
-            //++++++++++
-            // if (data.length === 0) {
-            //     console.log("No data to display");
-            // } else {
-            //     for (let i = 0; i <data.length; i++){
-            //     // //check for rise information
-            //         console.log("Rise: " + data[i].rise.utc_datetime);
-            // // //check for culmination information
-            //         console.log("Culminates: " +data[i].culmination.utc_datetime);
-            // // //check for set information
-            //         console.log("Sets: " + data[i].set.utc_datetime);
-            //     }
-            // }
+           
+            if (data.length === 0) {
+                console.log("No data to display");
+            } else {
+                for (let i = 0; i <data.length; i++){
+                // //check for rise information
+                    console.log("Rises at: " + getTime(data[i].rise.utc_timestamp));
+            // //check for culmination information
+                    console.log("Culminates at: " + getTime(data[i].culmination.utc_timestamp));
+            // //check for set information
+                    console.log("Sets at: " + getTime(data[i].set.utc_timestamp));
+                }
+            }
 
 
             // //check for rise information
