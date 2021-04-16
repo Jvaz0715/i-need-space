@@ -105,6 +105,12 @@ button:hover {
     background-image: url("https://cdn.dribbble.com/users/178032/screenshots/1794380/satx4.gif");
 }
 
+.card-body {
+    text-align: center;
+    background-color: #C0C0C0;
+    
+}
+
 
 
 table,
