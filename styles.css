@@ -81,8 +81,36 @@ button:hover {
 }
 
 .information-container {
-    width: 50%;
-    height: 400px;
+    width: 60%;
+    height: 700px;
     border: 3px solid red;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: white; */
+}
+
+.forecast-container {
+    width: 3fr;
+    display: flex;
+    color: white;
+    border: 3px solid white;
+
+}
+
+.img-container {
+    width: 30%;
+    border: 2px solid green;
+
+}
+
+.sat-img {
+    width: 100%;
+    height: auto;
+}
+
+.forecast-details {
+    width: 70%;
+    border: 2px solid yellow;
 }
