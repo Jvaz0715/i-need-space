@@ -7,11 +7,14 @@ const searchButton = document.querySelector("#search");
 
 //some helper functions
 
+// create a helper function to keep hours on the 12 hour clock
+
 //create a function to just get the TIME of the rise, culm., sets
 function getTime(utcStamp) {
     // Create date based on the timestamp
     const date = new Date(utcStamp * 1000);
     // Hours part from the timestamp
+    //currently in 24 hour format
     const hours = date.getHours();
     // Minutes part from the timestamp
     //it will account for single digits and double digits
@@ -20,7 +23,9 @@ function getTime(utcStamp) {
     const seconds = "0" + date.getSeconds();
 
     // Will display time in 10:30:23 format
-    const formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    const eventTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+    return eventTime;
 }
 
 //add event listener to button
