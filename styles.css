@@ -9,7 +9,7 @@ body {
     background-color: #caf0f8;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Orelega One', cursive;
 }
 
@@ -81,20 +81,20 @@ button:hover {
 }
 
 .information-container {
-    width: 60%;
-    height: 700px;
-    border: 3px solid red;
     margin-bottom: 20px;
-    background-color: #caf0f8;
+    background-color: #90e0ef ;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 24px;
+    border-radius: 3px;
+    width: 70%;
     /* background-color: white; */
 }
 
 .card-side-side{
     display: flex;
-    border: 3px solid green;
+    border: 1px solid lightgrey;
     width: 90%;
 }
 
