@@ -79,34 +79,17 @@ searchButton.addEventListener("click", function(){
             if (data.length === 0) {
                 console.log("No data to display");
             } else {
-                for (let i = 0; i <data.length; i++){
-                    //testing doms
-                    const infoContainer = document.querySelector(".information-container");
-                    const cardSection = document.createElement("div");
-                    cardSection.classList.add("card-side-side");
-                    infoContainer.appendChild(cardSection);
-
-                    const imgContainer = document.createElement("div");
-                    imgContainer.classList.add("img-container");
-                    cardSection.appendChild(imgContainer);
-
-                    const cardBody = document.createElement("div");
-                    cardBody.classList.add("card-body");
-
-                    //check for the date
-                    console.log("==============================================")
-                    console.log("Event will occur on: " + getDate(data[i].rise.utc_timestamp));
-                    console.log("Below are the rise, culmination, and setting times");
-                    
-                    //check for rise information
-                    console.log("Rises at: " + getTime(data[i].rise.utc_timestamp));
-                    //check for culmination information
-                    console.log("Culminates at: " + getTime(data[i].culmination.utc_timestamp));
-                    //check for set information
-                    console.log("Sets at: " + getTime(data[i].set.utc_timestamp));
-                    console.log("==============================================")
-                }
+                const eventDate = document.querySelector(".event-date");
+                const riseTime = document.querySelector(".rise-time");
+                const culmTime = document.querySelector(".culmination-time");
+                const setTime = document.querySelector(".set-time");
+                
+                eventDate.innerText = getDate(data[0].rise.utc_timestamp);
+                riseTime.innerText = getTime(data[0].rise.utc_timestamp) + " (local time)";
+                culmTime.innerText = getTime(data[0].culmination.utc_timestamp) + " (local time)";
+                setTime.innerText = getTime(data[0].set.utc_timestamp) + " (local time)";
             }
+
 
             // Use this to create a count down later on
             // const currentdate = new Date(); 
@@ -123,3 +106,19 @@ searchButton.addEventListener("click", function(){
     })
 })
 
+
+
+// for (let i = 0; i <data.length; i++){
+//     //check for the date
+//     console.log("==============================================")
+//     console.log("Event will occur on: " + getDate(data[i].rise.utc_timestamp));
+//     console.log("Below are the rise, culmination, and setting times");
+    
+//     //check for rise information
+//     console.log("Rises at: " + getTime(data[i].rise.utc_timestamp));
+//     //check for culmination information
+//     console.log("Culminates at: " + getTime(data[i].culmination.utc_timestamp));
+//     //check for set information
+//     console.log("Sets at: " + getTime(data[i].set.utc_timestamp));
+//     console.log("==============================================")
+// }
