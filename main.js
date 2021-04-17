@@ -19,7 +19,7 @@ function getDate(utcStamp){
     const date = newDate.getDate();
     const fullDate = month + ' ' + date + ', ' + year;
     return fullDate;
-  }
+}
 
 //create a function to just get the TIME of the rise, culm., sets
 function getTime(utcStamp) {
@@ -49,7 +49,7 @@ searchButton.addEventListener("click", function(){
     
     //declare the mapURL concatenated with necessary url portions
     const mapURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + addressString + ".json?access_token=" + apiInput.value;
-   
+
     // now fetch the mapURL delared above
     fetch(mapURL)
     // Now process the raw response into an object
@@ -58,7 +58,6 @@ searchButton.addEventListener("click", function(){
         // declare the coordinates of each latitude and longitude
         const latitude = data.features[0].geometry.coordinates[0];
         const longitude = data.features[0].geometry.coordinates[1];
-       
         const coordinates = [latitude, longitude];
         return coordinates;
     })
@@ -76,25 +75,21 @@ searchButton.addEventListener("click", function(){
             //test to make sure you can log out the satellite url properply
             console.log('If this succeeds, than the sat url should be returned below: ')
             console.log(satAPIurl);
-           
+        
             if (data.length === 0) {
                 console.log("No data to display");
             } else {
-                for (let i = 0; i <data.length; i++){
-                    //check for the date
-                    console.log("==============================================")
-                    console.log("Event will occur on: " + getDate(data[i].rise.utc_timestamp));
-                    console.log("Below are the rise, culmination, and setting times");
-                    
-                    //check for rise information
-                    console.log("Rises at: " + getTime(data[i].rise.utc_timestamp));
-                    //check for culmination information
-                    console.log("Culminates at: " + getTime(data[i].culmination.utc_timestamp));
-                    //check for set information
-                    console.log("Sets at: " + getTime(data[i].set.utc_timestamp));
-                    console.log("==============================================")
-                }
+                const eventDate = document.querySelector(".event-date");
+                const riseTime = document.querySelector(".rise-time");
+                const culmTime = document.querySelector(".culmination-time");
+                const setTime = document.querySelector(".set-time");
+                
+                eventDate.innerText = getDate(data[0].rise.utc_timestamp);
+                riseTime.innerText = getTime(data[0].rise.utc_timestamp) + " (local time)";
+                culmTime.innerText = getTime(data[0].culmination.utc_timestamp) + " (local time)";
+                setTime.innerText = getTime(data[0].set.utc_timestamp) + " (local time)";
             }
+
 
             // Use this to create a count down later on
             // const currentdate = new Date(); 
@@ -106,7 +101,24 @@ searchButton.addEventListener("click", function(){
             //     + currentdate.getSeconds(); 
 
             // console.log(currentdate);
-      
+    
     })
     })
 })
+
+
+
+// for (let i = 0; i <data.length; i++){
+//     //check for the date
+//     console.log("==============================================")
+//     console.log("Event will occur on: " + getDate(data[i].rise.utc_timestamp));
+//     console.log("Below are the rise, culmination, and setting times");
+    
+//     //check for rise information
+//     console.log("Rises at: " + getTime(data[i].rise.utc_timestamp));
+//     //check for culmination information
+//     console.log("Culminates at: " + getTime(data[i].culmination.utc_timestamp));
+//     //check for set information
+//     console.log("Sets at: " + getTime(data[i].set.utc_timestamp));
+//     console.log("==============================================")
+// }
