@@ -19,7 +19,7 @@ function getDate(utcStamp){
     const date = newDate.getDate();
     const fullDate = month + ' ' + date + ', ' + year;
     return fullDate;
-  }
+}
 
 //create a function to just get the TIME of the rise, culm., sets
 function getTime(utcStamp) {
@@ -49,7 +49,7 @@ searchButton.addEventListener("click", function(){
     
     //declare the mapURL concatenated with necessary url portions
     const mapURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + addressString + ".json?access_token=" + apiInput.value;
-   
+
     // now fetch the mapURL delared above
     fetch(mapURL)
     // Now process the raw response into an object
@@ -58,7 +58,6 @@ searchButton.addEventListener("click", function(){
         // declare the coordinates of each latitude and longitude
         const latitude = data.features[0].geometry.coordinates[0];
         const longitude = data.features[0].geometry.coordinates[1];
-       
         const coordinates = [latitude, longitude];
         return coordinates;
     })
@@ -76,11 +75,24 @@ searchButton.addEventListener("click", function(){
             //test to make sure you can log out the satellite url properply
             console.log('If this succeeds, than the sat url should be returned below: ')
             console.log(satAPIurl);
-           
+        
             if (data.length === 0) {
                 console.log("No data to display");
             } else {
                 for (let i = 0; i <data.length; i++){
+                    //testing doms
+                    const infoContainer = document.querySelector(".information-container");
+                    const cardSection = document.createElement("div");
+                    cardSection.classList.add("card-side-side");
+                    infoContainer.appendChild(cardSection);
+
+                    const imgContainer = document.createElement("div");
+                    imgContainer.classList.add("img-container");
+                    cardSection.appendChild(imgContainer);
+
+                    const cardBody = document.createElement("div");
+                    cardBody.classList.add("card-body");
+
                     //check for the date
                     console.log("==============================================")
                     console.log("Event will occur on: " + getDate(data[i].rise.utc_timestamp));
@@ -106,7 +118,8 @@ searchButton.addEventListener("click", function(){
             //     + currentdate.getSeconds(); 
 
             // console.log(currentdate);
-      
+    
     })
     })
 })
+
