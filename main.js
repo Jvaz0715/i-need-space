@@ -99,34 +99,17 @@ searchButton.addEventListener("click", function(){
             }
 
 
-            // Use this to create a count down later on
-            // const currentdate = new Date(); 
-            // const datetime = "Last Sync: " + currentdate.getDate() + "/"
-            //     + (currentdate.getMonth()+1)  + "/" 
-            //     + currentdate.getFullYear() + " @ "  
-            //     + currentdate.getHours() + ":"  
-            //     + currentdate.getMinutes() + ":" 
-            //     + currentdate.getSeconds(); 
+            //Use this to create a count down later on
+            const currentdate = new Date(); 
+            const datetime = "Last Sync: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds(); 
 
-            // console.log(currentdate);
+            console.log(currentdate);
     
     })
     })
 })
-
-
-
-// for (let i = 0; i <data.length; i++){
-//     //check for the date
-//     console.log("==============================================")
-//     console.log("Event will occur on: " + getDate(data[i].rise.utc_timestamp));
-//     console.log("Below are the rise, culmination, and setting times");
-    
-//     //check for rise information
-//     console.log("Rises at: " + getTime(data[i].rise.utc_timestamp));
-//     //check for culmination information
-//     console.log("Culminates at: " + getTime(data[i].culmination.utc_timestamp));
-//     //check for set information
-//     console.log("Sets at: " + getTime(data[i].set.utc_timestamp));
-//     console.log("==============================================")
-// }
