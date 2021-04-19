@@ -79,6 +79,11 @@ searchButton.addEventListener("click", function(){
             const riseTime = document.querySelector(".rise-time");
             const culmTime = document.querySelector(".culmination-time");
             const setTime = document.querySelector(".set-time");
+            const satName = document.querySelector(".sat-name");
+            const cityName = document.querySelector(".city-name");
+
+            satName.innerText = noradInput.value;
+            cityName.innerText = addressInput.value;
             
             if (data.length === 0) {
                 console.log("No data to display");

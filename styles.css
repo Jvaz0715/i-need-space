@@ -9,7 +9,7 @@ body {
     background-color: #caf0f8;
 }
 
-h1, h2, h3 {
+h1, h2, h3, span {
     font-family: 'Orelega One', cursive;
 }
 
@@ -117,6 +117,10 @@ td {
     color: white;
 }
 
+.info-header {
+    text-align: center;
+}
+
 .info-footer {
     text-align: center;
     margin-top: 20px;
@@ -129,4 +133,8 @@ td {
 
 #future-top-row {
     background-color: black;
+}
+
+span {
+    color: white;
 }
