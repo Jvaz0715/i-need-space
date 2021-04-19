@@ -75,15 +75,18 @@ searchButton.addEventListener("click", function(){
             //test to make sure you can log out the satellite url properply
             console.log('If this succeeds, than the sat url should be returned below: ')
             console.log(satAPIurl);
-        
+            const eventDate = document.querySelector(".event-date");
+            const riseTime = document.querySelector(".rise-time");
+            const culmTime = document.querySelector(".culmination-time");
+            const setTime = document.querySelector(".set-time");
+            
             if (data.length === 0) {
                 console.log("No data to display");
+                eventDate.innerText = "N/A";
+                riseTime.innerText = "N/A";
+                culmTime.innerText = "N/A";
+                setTime.innerText = "N/A";
             } else {
-                const eventDate = document.querySelector(".event-date");
-                const riseTime = document.querySelector(".rise-time");
-                const culmTime = document.querySelector(".culmination-time");
-                const setTime = document.querySelector(".set-time");
-                
                 eventDate.innerText = getDate(data[0].rise.utc_timestamp);
                 riseTime.innerText = getTime(data[0].rise.utc_timestamp) + " (local time)";
                 culmTime.innerText = getTime(data[0].culmination.utc_timestamp) + " (local time)";
